@@ -1,12 +1,10 @@
-<template>
+<template lang="">
   <div>
-    Dashboard
+    <h1>Cabeçalho</h1>
   </div>
+  <router-view />
 </template>
-
-
-<script lang="ts">
-
+<script>
 export default {
 
 };

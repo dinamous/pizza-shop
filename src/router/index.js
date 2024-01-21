@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import AppLayout from '../pages/_layouts/TemplateApp.vue';
+import AuthLayout from '../pages/_layouts/TemplateAuth.vue';
 import Dashboard from '../pages/app/DashboadView.vue';
-import SignIn from '../pages/auth/SignIn.vue';
+import SignIn from '../pages/auth/SignIn.vue';;
 // import AboutMe from '@/views/AboutMe.vue';
 // import Forbidden from '@/views/Forbidden.vue';
 // import Home from '@/views/Home.vue';
@@ -9,8 +11,40 @@ import SignIn from '../pages/auth/SignIn.vue';
 // import User from '@/views/User.vue';
 
 const routes = [
-  { path: '/', name: 'Dashboard', component: Dashboard, meta: { auth: false } },
-  { path: '/sign-in', name: 'SignIn', component: SignIn, meta: { auth: false } },
+  {
+    path: '/',
+    component: AppLayout,
+    // meta: { auth: false },
+    children: [
+      {
+        path: '/',
+        name: 'Dashboard',
+        component: Dashboard,
+        meta: { title: 'Dashboard' }
+      },
+    ]
+  },
+  {
+    path: '/sign-in',
+    name: 'SignIn',
+    component: AuthLayout,
+    // meta: {
+    //   auth: false,
+    //   title: 'Login'
+    // },
+    children: [
+      {
+        path: '/sign-in',
+        name: 'SignIn',
+        component: SignIn,
+        meta: {
+          title: 'Login'
+        },
+      },
+    ]
+
+
+  },
   // { path: '/forbidden', name: 'Forbidden', component: Forbidden, meta: { auth: false } },
   // { path: '/users/:id', name: 'User', component: User, meta: { auth: true } },
   // {
@@ -51,5 +85,10 @@ const router = createRouter({
 //   }
 //   next();
 // });
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title + ' | pizza.shop'
+  next()
+})
 
 export default router;
