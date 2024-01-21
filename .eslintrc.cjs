@@ -35,7 +35,17 @@ module.exports = {
     'comma-spacing': ['error', { before: false, after: true }],
     'vue/no-multi-spaces': 0,
     'simple-import-sort/imports': 'error',
-
-
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'never',
+        'normal': 'always',
+        'component': 'always'
+      },
+      'svg': 'always',
+      'math': 'always'
+    }]
   }
+
+
 };
+
