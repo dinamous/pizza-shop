@@ -1,12 +1,13 @@
 <template>
   <div id="app">
+    <Toaster rich-colors />
     <routerView />
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { useHead } from '@unhead/vue';
-
+import { toast, Toaster } from 'vue-sonner'
 
 useHead({
   titleTemplate: '%s | pizza.shop',

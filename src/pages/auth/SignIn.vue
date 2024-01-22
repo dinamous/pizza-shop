@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
-import useValidade from '@vuelidate/core'
+import { useVuelidate } from '@vuelidate/core'
 import { email, required } from '@vuelidate/validators'
 import { reactive, ref } from 'vue'
+import { toast, Toaster } from 'vue-sonner'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -18,14 +19,14 @@ const rules = {
   email: { required, email },
 }
 
-const v$ = useValidade(rules, formData)
+const v$ = useVuelidate(rules, formData)
 
-const submitForm = async () => {
+async function submitForm() {
 
   try {
     // Lógica de submissão aqui (por exemplo, chamada de API)
     // const result = await v$.value.$validate()
-    console.log(formData.email);
+    console.log(data);
 
     // Simulação de uma chamada assíncrona
     isSubmitting.value = true;
@@ -36,9 +37,10 @@ const submitForm = async () => {
 
   } catch (error) {
     // Lógica em caso de falha na submissão
-
+    toast.error('Credenciais inválidas.')
   } finally {
     isSubmitting.value = false;
+    toast.success('Enviamos um link de autenticação para o seu e-mail.')
   }
 }
 
