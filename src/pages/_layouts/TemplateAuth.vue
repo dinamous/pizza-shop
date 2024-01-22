@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="min-h-screen grid grid-cols-2">
+  <div class="min-h-screen grid grid-cols-2 antialiased">
     <div class="h-full border-r border-foreground/5 bg-muted p-10 text-muted-foreground flex flex-col justify-between">
       <div class="flex items-center gap-3 text-foreground">
         <svg
@@ -39,7 +39,7 @@
         Painel do parceiro &copy, pizza.shop - {{ new Date().getFullYear() }}
       </footer>
     </div>
-    <div class="flex flex-col items-center justify-center"> 
+    <div class="relative flex flex-col items-center justify-center"> 
       <router-view />
     </div>
   </div>

@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AppLayout from '../pages/_layouts/TemplateApp.vue';
 import AuthLayout from '../pages/_layouts/TemplateAuth.vue';
 import Dashboard from '../pages/app/DashboadView.vue';
-import SignIn from '../pages/auth/SignIn.vue';;
+import SignIn from '../pages/auth/SignIn.vue';
+import SignUp from '../pages/auth/SignUp.vue';;
 // import AboutMe from '@/views/AboutMe.vue';
 // import Forbidden from '@/views/Forbidden.vue';
 // import Home from '@/views/Home.vue';
@@ -25,7 +26,7 @@ const routes = [
     ]
   },
   {
-    path: '/sign-in',
+    path: '/',
     name: 'SignIn',
     component: AuthLayout,
     // meta: {
@@ -39,6 +40,14 @@ const routes = [
         component: SignIn,
         meta: {
           title: 'Login'
+        },
+      },
+      {
+        path: '/sign-up',
+        name: 'SignUp',
+        component: SignUp,
+        meta: {
+          title: 'Sign-Up'
         },
       },
     ]
