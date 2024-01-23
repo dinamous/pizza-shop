@@ -5,13 +5,7 @@
     </h1>
   </div>
   <div class="space-y-2.5">
-    <form class="flex items-center gap-2">
-      <span class="text-sm font-semibold"> Filtros:</span>
-      <Input
-        placeholder="Nome do cliente"
-        class="h-8 w-[320px]"
-      />
-    </form>
+    <OrderTableFilters />
 
     <div class="border rounded-md">
       <Table>
@@ -36,58 +30,10 @@
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow
+          <OrderTableRow
             v-for="(item, index) in Array.from({ length: 9 })"
             :key="index"
-          >
-            <TableCell>
-              <Button
-                variant="outline"
-                size="sm"
-              >
-                <Icon
-                  icon="lucide:search"
-                />
-                <span class="sr-only">Detalhes do pedido</span>
-              </Button>
-            </TableCell>
-            <TableCell class="font-mono text-sx font-medium">
-              hduAS786asdha9
-            </TableCell>
-            <TableCell class="text-muted-foreground">
-              15 minutos
-            </TableCell>
-            <TableCell class="">
-              <div class="flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-slate-400" />
-                <span class="font-medium text-muted-foreground">Pendente</span>
-              </div>
-            </TableCell>
-            <TableCell class="font-medium">
-              Dinamous
-            </TableCell>
-            <TableCell class="font-medium">
-              R$132,98
-            </TableCell>
-            <TableCell>
-              <Button
-                variant="outline"
-                size="sm"
-              >
-                <Icon icon="lucide:arrow-right" />
-                Aprovar
-              </Button>
-            </TableCell>
-            <TableCell>
-              <Button
-                variant="ghost"
-                size="sm"
-              >
-                <Icon icon="lucide:x" />
-                Cancelar
-              </Button>
-            </TableCell>
-          </TableRow>
+          />
         </TableBody>
       </Table>
     </div>
@@ -96,10 +42,7 @@
 
 
 <script setup>
-import { Icon } from '@iconify/vue'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -109,6 +52,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import OrderTableFilters from '@/pages/app/orders/OrderTableFilters.vue'
+import OrderTableRow from '@/pages/app/orders/OrderTableRow.vue'
 
 </script>
 <style lang="">
