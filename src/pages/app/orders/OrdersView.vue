@@ -37,12 +37,18 @@
         </TableBody>
       </Table>
     </div>
+    <Pagination
+      page-index="0"
+      total-count="105"
+      per-page="8"
+    />
   </div>
 </template>
 
 
 <script setup>
 
+import Pagination from '@/components/PaginationSection.vue'
 import {
   Table,
   TableBody,
