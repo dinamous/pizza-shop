@@ -1,13 +1,18 @@
 <template lang="">
   <TableRow>
     <TableCell>
-      <Button
-        size="xs"
-        variant="outline"
-      >
-        <Icon icon="lucide:search" />
-        <span class="sr-only">Detalhes do pedido</span>
-      </Button>
+      <Dialog>
+        <DialogTrigger>
+          <Button
+            size="xs"
+            variant="outline"
+          >
+            <Icon icon="lucide:search" />
+            <span class="sr-only">Detalhes do pedido</span>
+          </Button>
+        </DialogTrigger>
+        <OrderDetails />
+      </Dialog>
     </TableCell>
     <TableCell class="font-mono text-sx font-medium">
       hduAS786asdha9
@@ -52,6 +57,15 @@
 import { Icon } from '@iconify/vue'
 
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import {
   Table,
@@ -62,6 +76,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+
+import OrderDetails from './OrderDetails.vue'
 
 </script>
 <style lang="">
