@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
-    <ThemeProvider :default-theme="defaultTheme" storage-key="myAppTheme">
-      <Toaster rich-colors />
-      <routerView />
-    </ThemeProvider>
-  </div>
+  <ThemeProvider :default-theme="defaultTheme" storage-key="myAppTheme">
+    <Toaster rich-colors />
+    <routerView />
+  </ThemeProvider>
 </template>
 
 <script  lang="ts">

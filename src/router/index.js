@@ -5,7 +5,7 @@ import AuthLayout from '../pages/_layouts/TemplateAuth.vue';
 import Dashboard from '../pages/app/DashboadView.vue';
 import SignIn from '../pages/auth/SignIn.vue';
 import SignUp from '../pages/auth/SignUp.vue';;
-// import AboutMe from '@/views/AboutMe.vue';
+import Orders from '../pages/app/orders/OrdersView.vue';;
 // import Forbidden from '@/views/Forbidden.vue';
 // import Home from '@/views/Home.vue';
 // import Login from '@/views/Login.vue';
@@ -22,6 +22,12 @@ const routes = [
         name: 'Dashboard',
         component: Dashboard,
         meta: { title: 'Dashboard' }
+      },
+      {
+        path: '/orders',
+        name: 'Orders',
+        component: Orders,
+        meta: { title: 'Pedidos' }
       },
     ]
   },
