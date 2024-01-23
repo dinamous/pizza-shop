@@ -23,6 +23,10 @@
           label="Pedidos"
         />
       </nav>
+
+      <div class="ml-auto flex items-center gap-2">
+        <AccountMenu />
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +37,8 @@ import { Icon } from '@iconify/vue';
 
 import NavLink from '@/components/NavLink.vue'
 import { Separator } from '@/components/ui/separator'
+
+import AccountMenu from './AccountMenu.vue';
 </script>
 
 
