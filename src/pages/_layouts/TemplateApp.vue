@@ -1,6 +1,6 @@
 <template lang="">
-  <div class="flex min-h-screen flex-col antialiased">
-    <h1>Cabeçalho</h1>
+  <div class="flex flex-col antialiased">
+    <Header />
   </div>
   <div class="flex flex-1 flex-col gap-4 p-8 pt-6">
     <router-view />
@@ -9,10 +9,8 @@
 
 
 
-<script>
-export default {
-
-};
+<script setup>
+import Header from '@/components/HeaderNav.vue';
 </script>
 <style lang="">
   
