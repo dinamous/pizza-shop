@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import AppLayout from '../pages/_layouts/TemplateApp.vue';
 import AuthLayout from '../pages/_layouts/TemplateAuth.vue';
-import Dashboard from '../pages/app/DashboadView.vue';
+import Dashboard from '../pages/app/dashboard/DashboadView.vue';
 import SignIn from '../pages/auth/SignIn.vue';
 import SignUp from '../pages/auth/SignUp.vue';;
 import Orders from '../pages/app/orders/OrdersView.vue';;
