@@ -2,16 +2,18 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import AppLayout from '../pages/_layouts/TemplateApp.vue';
 import AuthLayout from '../pages/_layouts/TemplateAuth.vue';
+import NotFound from '../pages/404View.vue'
 import Dashboard from '../pages/app/dashboard/DashboadView.vue';
+import Orders from '../pages/app/orders/OrdersView.vue';
 import SignIn from '../pages/auth/SignIn.vue';
-import SignUp from '../pages/auth/SignUp.vue';;
-import Orders from '../pages/app/orders/OrdersView.vue';;
+import SignUp from '../pages/auth/SignUp.vue';
 // import Forbidden from '@/views/Forbidden.vue';
 // import Home from '@/views/Home.vue';
 // import Login from '@/views/Login.vue';
 // import User from '@/views/User.vue';
 
 const routes = [
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   {
     path: '/',
     component: AppLayout,

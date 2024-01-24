@@ -12,6 +12,7 @@
 
     <div class="grid grid-cols-9 gap-6">
       <ChartRevenue />
+      <ChartPopular />
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ import CardDayOrderAmount from './CardDayOrderAmount.vue';
 import CardMonthOrderAmount from './CardMonthOrderAmount.vue'
 import CardMonthOrderCanceledAmount from './CardMonthOrderCanceledAmount.vue'
 import CardMonthRevenue from './CardMonthRevenue.vue';
+import ChartPopular from './ChartPopular.vue';
 import ChartRevenue from './ChartRevenue.vue';
 
 </script>

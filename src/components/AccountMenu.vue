@@ -31,7 +31,11 @@
           icon="lucide:log-out"
           class="font-medium "
         />
-        <span>Sair</span>
+        <span>
+          <router-link to="/sign-in">
+            Sair
+          </router-link>
+        </span>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
@@ -40,6 +44,7 @@
 
 <script setup>
 import { Icon } from '@iconify/vue';
+import { RouterLink } from 'vue-router'
 
 import { Button } from '@/components/ui/button'
 import {

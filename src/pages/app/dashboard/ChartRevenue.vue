@@ -1,5 +1,5 @@
 <template lang="html">
-  <Card class="col-span-6">
+  <Card class="col-span-5">
     <CardHeader class="flex-row items-center justify-between pb-8">
       <div class="space-y-1">
         <CardTitle class="text-base font-medium">
@@ -26,15 +26,11 @@
 
 <script lang="ts" setup>
 import { Scatter, StackedBar } from '@unovis/ts'
-import { VisAxis, VisLine, VisScatter, VisStackedBar, VisTooltip, VisXYContainer } from '@unovis/vue'
+import { VisAxis, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 import { ref } from 'vue'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-
-
 type DataRecord = { x: number; y: number }
-const props = defineProps<{ datas: DataRecord[] }>()
-
 let data = ref([
   { x: 0, y: 700 },
   { x: 1, y: 600 },
@@ -50,7 +46,7 @@ let data = ref([
 
 const margin = { left: 30, right: 30 }
 
-const a = (d: DataRecord, i: number) => i
+const a = (d: DataRecord) => d.x
 const b = (d: DataRecord) => d.y
 
 const triggers = {
