@@ -37,42 +37,41 @@ async function submitForm() {
   try {
     // Lógica de submissão aqui (por exemplo, chamada de API)
     // const result = await v$.value.$validate()
-    console.log(formData);
+    console.log(formData.email);
 
     // Simulação de uma chamada assíncrona
     isSubmitting.value = true;
-    // const result = await v$.value.$validate()
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const result = await v$.value.$validate()
+
+    if (result) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      isSubmitting.value = false;
+      toast.success('Restaurante cadastrado com sucesso.')
+      setTimeout(() => {
+        router.push('/')
+      }, 2000);
+    } else {
+      throw new Error
+    }
 
     // Lógica após a submissão bem-sucedida
 
   } catch (error) {
     // Lógica em caso de falha na submissão
-    toast.error('Erro ao cadastrar.')
-  } finally {
+    toast.error('Credenciais inválidas.')
     isSubmitting.value = false;
-    toast.success('Restaurante cadastrado com sucesso.')
-    setTimeout(() => {
-      router.push('/sign-in')
-    }, 2000);
+  } finally {
+
   }
 }
 
 
 </script>
 
-<template lang="">
-  <div
-    class="p-8"
-  >
-    <Button
-      as-child
-      variant="ghost"
-      class="absolute right-8 top-8"
-    >
-      <router-link
-        to="/sign-in"
-      >
+<template lang="html">
+  <div class="p-8">
+    <Button as-child variant="ghost" class="absolute right-8 top-8">
+      <router-link to="/sign-in">
         Fazer Login
       </router-link>
     </Button>
@@ -85,61 +84,34 @@ async function submitForm() {
           Seja um parceiro e comece suas vendas.
         </p>
       </div>
-      <form
-        @submit.prevent="submitForm"
-        class="space-y-4"
-      >
+      <form @submit.prevent="submitForm" class="space-y-4">
         <div class="space-y-2">
           <Label for="restaurantName">Nome do estabelecimento</Label>
-          <Input
-            id="restaurantName"
-            type="text"
-            v-model="formData.restaurantName"
-          />
+          <Input id="restaurantName" type="text" v-model="formData.restaurantName" />
         </div>
 
         <div class="space-y-2">
           <Label for="managerName">Seu nome</Label>
-          <Input
-            id="managerName"
-            type="text"
-            v-model="formData.managerName"
-          />
+          <Input id="managerName" type="text" v-model="formData.managerName" />
         </div>
 
         <div class="space-y-2">
           <Label for="email">Seu email</Label>
-          <Input
-            id="email"
-            type="email"
-            v-model="formData.email"
-          />
+          <Input id="email" type="email" v-model="formData.email" />
         </div>
 
         <div class="space-y-2">
           <Label for="phone">Seu celular</Label>
-          <Input
-            id="phone"
-            type="tel"
-            v-model="formData.phone"
-          />
+          <Input id="phone" type="tel" v-model="formData.phone" />
         </div>
 
-        <Button
-          class="w-full"
-          :disabled="isSubmitting"
-        >
+        <Button class="w-full" :disabled="isSubmitting">
           Acessar painel
         </Button>
 
         <p class="px-6 text-center text-sm leading-relaxed text-muted-foreground">
-          Ao continuar, cocê concorda com nossos <a
-            href=""
-            class="underline underline-offset-1"
-          >Termos de serviço</a> e <a
-            href=""
-            class="underline underline-offset-1"
-          >Políticas de Privacidade.</a>
+          Ao continuar, cocê concorda com nossos <a href="" class="underline underline-offset-1">Termos de serviço</a> e
+          <a href="" class="underline underline-offset-1">Políticas de Privacidade.</a>
         </p>
       </form>
     </div>

@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 // import { inject } from 'vue';
-import { toast, Toaster } from 'vue-sonner'
+import { Toaster } from 'vue-sonner'
 
 // const ThemeProviderContext = Symbol('ThemeProviderContext');
 

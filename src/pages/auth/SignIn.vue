@@ -32,38 +32,37 @@ async function submitForm() {
 
     // Simulação de uma chamada assíncrona
     isSubmitting.value = true;
-    // const result = await v$.value.$validate()
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const result = await v$.value.$validate()
+
+    if (result) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      isSubmitting.value = false;
+      toast.success('Enviamos um link de autenticação para o seu e-mail.')
+      setTimeout(() => {
+        router.push('/')
+      }, 2000);
+    } else {
+      throw new Error
+    }
 
     // Lógica após a submissão bem-sucedida
 
   } catch (error) {
     // Lógica em caso de falha na submissão
     toast.error('Credenciais inválidas.')
-  } finally {
     isSubmitting.value = false;
-    toast.success('Enviamos um link de autenticação para o seu e-mail.')
-    setTimeout(() => {
-      router.push('/')
-    }, 2000);
+  } finally {
+
   }
 }
 
 
 </script>
 
-<template lang="">
-  <div
-    class="p-8"
-  >
-    <Button
-      as-child
-      variant="ghost"
-      class="absolute right-8 top-8"
-    >
-      <router-link
-        to="/sign-up"
-      >
+<template lang="html">
+  <div class="p-8">
+    <Button as-child variant="ghost" class="absolute right-8 top-8">
+      <router-link to="/sign-up">
         Novo Estabelecimento
       </router-link>
     </Button>
@@ -76,22 +75,12 @@ async function submitForm() {
           Acompanhe suas vendas pelo painel do parceiro.
         </p>
       </div>
-      <form
-        @submit.prevent="submitForm"
-        class="space-y-4"
-      >
+      <form @submit.prevent="submitForm" class="space-y-4">
         <div class="space-y-2">
           <Label for="email">Seu email</Label>
-          <Input
-            id="email"
-            type="email"
-            v-model="formData.email"
-          />
+          <Input id="email" type="email" v-model="formData.email" />
         </div>
-        <Button
-          class="w-full"
-          :disabled="isSubmitting"
-        >
+        <Button class="w-full" :disabled="isSubmitting">
           Acessar painel
         </Button>
       </form>

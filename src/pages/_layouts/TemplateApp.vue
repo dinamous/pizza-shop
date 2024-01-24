@@ -1,4 +1,4 @@
-<template lang="">
+<template lang="html">
   <div class="flex flex-col antialiased">
     <Header />
   </div>

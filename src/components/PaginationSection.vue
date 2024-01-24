@@ -30,10 +30,10 @@
 </template>
 
 
-<script>
+<script lang="ts">
 
 import { Icon } from '@iconify/vue';
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 
 import {
   Button,
