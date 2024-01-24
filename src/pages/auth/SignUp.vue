@@ -52,7 +52,9 @@ async function submitForm() {
   } finally {
     isSubmitting.value = false;
     toast.success('Restaurante cadastrado com sucesso.')
-    router.push('/sign-in')
+    setTimeout(() => {
+      router.push('/sign-in')
+    }, 2000);
   }
 }
 

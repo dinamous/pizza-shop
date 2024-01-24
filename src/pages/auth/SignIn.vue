@@ -3,7 +3,7 @@
 import { useVuelidate } from '@vuelidate/core'
 import { email, required } from '@vuelidate/validators'
 import { reactive, ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import { toast } from 'vue-sonner'
 
 import { Button } from '@/components/ui/button'
@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 const isSubmitting = ref(false);
+const router = useRouter()
 
 const formData = reactive({
   email: ''
@@ -42,6 +43,9 @@ async function submitForm() {
   } finally {
     isSubmitting.value = false;
     toast.success('Enviamos um link de autenticação para o seu e-mail.')
+    setTimeout(() => {
+      router.push('/')
+    }, 2000);
   }
 }
 
